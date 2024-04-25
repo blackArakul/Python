@@ -168,17 +168,17 @@ from random import randint
 # print(a)
 
 
-def num_count(tpl):
-    array = []
-    over = "Программа подсчета завершена"
-    for elem in tpl:
-        if elem in tpl and elem not in array:
-            array.append(elem)
-            print("Количество:", elem, "=", tpl.count(elem))
-    return over
-
-
-tuple_array = tuple(input("Введите элементы кортежа: "))
-print(tuple_array)
-print(num_count(tuple_array))
+# def num_count(tpl):
+#     array = []
+#     over = "Программа подсчета завершена"
+#     for elem in tpl:
+#         if elem in tpl and elem not in array:
+#             array.append(elem)
+#             print("Количество:", elem, "=", tpl.count(elem))
+#     return over
+#
+#
+# tuple_array = tuple(input("Введите элементы кортежа: "))
+# print(tuple_array)
+# print(num_count(tuple_array))
 
