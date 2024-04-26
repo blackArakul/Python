@@ -182,3 +182,6 @@ from random import randint
 # print(tuple_array)
 # print(num_count(tuple_array))
 
+
+print("Данные для добавления на github")
+
