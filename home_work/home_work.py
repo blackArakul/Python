@@ -1,3 +1,29 @@
+goods = {
+    "1": ["Core-i3-4330", 9, 4500],
+    "2": ["Core-i5-4670K", 3, 8500],
+    "3": ["AMD-4670K", 6, 3700],
+    "4": ["Pentium-4670K", 8, 2100],
+    "5": ["Core-4670K", 5, 6400]
+}
+
+
+while True:
+    num = input("Введите номер: ")
+    if num != "0":
+        if num in goods:
+            while True:
+                try:
+                    count = int(input("Введите количество: "))
+                    goods[num][1] += count
+                    break
+                except ValueError:
+                    print("Введите ЦЕЛОЕ ЧИСЛО!")
+        else:
+            print("Такого ключа не существует")
+    else:
+        break
+
+
 # num_of_symbols = input('Введите количество символов: ')
 #
 # while type(num_of_symbols) != int:
@@ -38,4 +64,5 @@
 #     if elem in b and elem not in c:
 #         c.append(elem)
 # print(c)
+
 

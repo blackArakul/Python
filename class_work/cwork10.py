@@ -174,9 +174,10 @@
 
 winners_math = ["Natalia", "Maxim", "Evgeniya", "Matvei", "Michail"]
 winners_physics = ["Maxim", "Matvei", "Alexandr"]
+winners_in_tow_disciplines = set(winners_math) & set(winners_physics)
 print("Все призеры", list(set(winners_math) | set(winners_physics)))
-print("Призеры обеих олимпиад", set(winners_math) & set(winners_physics))
-print("Обновленный список по математике:", set(winners_math) & set(set(winners_math) & set(winners_physics)))
+print("Призеры обеих олимпиад", winners_in_tow_disciplines)
+print("Обновленный список по математике:", set(winners_math) & winners_in_tow_disciplines)
 
 
 
