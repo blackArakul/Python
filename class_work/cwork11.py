@@ -1,4 +1,3 @@
-
 # goods = {
 #     "1": ["Core-i3-4330", 9, 4500],
 #     "2": ["Core-i5-4670K", 3, 8500],
@@ -191,31 +190,58 @@ dict_sell = {
 #     for y in dict_sell[x]:
 #         print("\t", y, ":", dict_sell[x][y])
 
+# while True:
+#     print("Что бы выйти из приложения наберите exit")
+#     name_seller = input("Введите имя продавца: ")
+#     if name_seller != "exit":
+#         if name_seller in dict_sell:
+#             region_seller = input("Введите регион(N,S,E,W): ")
+#             if region_seller in dict_sell[name_seller]:
+#                 print(dict_sell[name_seller][region_seller])
+#                 while True:
+#                     try:
+#                         num_of_sales = int(input("Введите новое значение продажи: "))
+#                         dict_sell[name_seller][region_seller] = num_of_sales
+#                         print(dict_sell[name_seller])
+#                         break
+#                     except ValueError:
+#                         print("Новое значение продаж должно быть ЦЕЛОЕ ЧИСЛО")
+#             else:
+#                 print("Такого региона не существует")
+#         else:
+#             print("Такого имени не существует")
+#     else:
+#         break
+
+
+name_seller = input("Введите имя продавца: ")
 while True:
-    print("Что бы выйти из приложения наберите exit")
-    name_seller = input("Введите имя продавца: ")
     if name_seller != "exit":
-        if name_seller in dict_sell:
-            region_seller = input("Введите регион(N,S,E,W): ")
-            if region_seller in dict_sell[name_seller]:
-                print(dict_sell[name_seller][region_seller])
-                while True:
-                    try:
-                        num_of_sales = int(input("Введите новое значение продажи: "))
-                        dict_sell[name_seller][region_seller] = num_of_sales
-                        print(dict_sell[name_seller])
-                        break
-                    except ValueError:
-                        print("Новое значение продаж должно быть ЦЕЛОЕ ЧИСЛО")
+        while True:
+            if name_seller in dict_sell:
+                region_seller = input("Введите регион: ")
+                if region_seller in dict_sell[name_seller]:
+                    print(dict_sell[name_seller][region_seller])
+                    break
+                else:
+                    print("Введите корректный регион")
             else:
-                print("Такого региона не существует")
-        else:
-            print("Такого имени не существует")
+                print("Такого имени не существует")
+                name_seller = input("Введите имя продавца: ")
+        while True:
+            try:
+                num_of_sales = int(input("Введите новое значение продажи: "))
+                dict_sell[name_seller][region_seller] = num_of_sales
+                print(dict_sell[name_seller])
+                print("Что бы выйти из приложения наберите exit")
+                name_seller = input("Введите имя продавца: ")
+                break
+            except ValueError:
+                print("Новое значение продаж должно быть ЦЕЛОЕ ЧИСЛО")
     else:
         break
 
-
-
-
-
-
+# for x in dict_sell:
+#     print(x)
+#     for y in dict_sell[x]:
+#         print("\t", y, ":", dict_sell[x][y])
