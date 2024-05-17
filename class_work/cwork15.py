@@ -222,7 +222,7 @@ def decorator(func):
     def arif(*args):
         print(f"Сумма чисел {args}: {func(*args)}\nСредне арифметическое {args}:", end=" ")
 
-        return sum(args) / len(args)
+        return func(*args) / len(args)
 
     return arif
 
