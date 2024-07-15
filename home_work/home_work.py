@@ -1,28 +1,43 @@
-goods = {
-    "1": ["Core-i3-4330", 9, 4500],
-    "2": ["Core-i5-4670K", 3, 8500],
-    "3": ["AMD-4670K", 6, 3700],
-    "4": ["Pentium-4670K", 8, 2100],
-    "5": ["Core-4670K", 5, 6400]
-}
+class Integer:
+    def __set_name__(self, owner, name):
+        self.name = "_" + name
+
+    def __get__(self, instance, owner):
+        # return instance.__dict__[self.name]
+        return getattr(instance, self.name)
+
+    def __set__(self, instance, value):
+        if not isinstance(value, int):
+            raise TypeError(f"Значение {self.name} должно быть целочисленное")
+        # instance.__dict__[self.name] = value
+        setattr(instance, self.name, value)
 
 
-while True:
-    num = input("Введите номер: ")
-    if num != "0":
-        if num in goods:
-            while True:
-                try:
-                    count = int(input("Введите количество: "))
-                    goods[num][1] += count
-                    break
-                except ValueError:
-                    print("Введите ЦЕЛОЕ ЧИСЛО!")
-        else:
-            print("Такого ключа не существует")
-    else:
-        break
-
+# goods = {
+#     "1": ["Core-i3-4330", 9, 4500],
+#     "2": ["Core-i5-4670K", 3, 8500],
+#     "3": ["AMD-4670K", 6, 3700],
+#     "4": ["Pentium-4670K", 8, 2100],
+#     "5": ["Core-4670K", 5, 6400]
+# }
+#
+#
+# while True:
+#     num = input("Введите номер: ")
+#     if num != "0":
+#         if num in goods:
+#             while True:
+#                 try:
+#                     count = int(input("Введите количество: "))
+#                     goods[num][1] += count
+#                     break
+#                 except ValueError:
+#                     print("Введите ЦЕЛОЕ ЧИСЛО!")
+#         else:
+#             print("Такого ключа не существует")
+#     else:
+#         break
+#
 
 # num_of_symbols = input('Введите количество символов: ')
 #

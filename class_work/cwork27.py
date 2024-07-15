@@ -284,7 +284,7 @@ from abc import ABC, abstractmethod
 from math import sqrt
 
 
-class Shape:
+class Shape(ABC):
     def __init__(self, color):
         self.color = color
 
