@@ -1,16 +1,52 @@
-class Integer:
-    def __set_name__(self, owner, name):
-        self.name = "_" + name
 
-    def __get__(self, instance, owner):
-        # return instance.__dict__[self.name]
-        return getattr(instance, self.name)
+def gen_person():
+    name = ""
+    tel = ""
 
-    def __set__(self, instance, value):
-        if not isinstance(value, int):
-            raise TypeError(f"Значение {self.name} должно быть целочисленное")
-        # instance.__dict__[self.name] = value
-        setattr(instance, self.name, value)
+    letters = ["a", "b", "c", "d", "e", "f", "g"]
+    nums = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"]
+
+    while len(name) != 7:
+        name += choice(letters)
+
+    while len(tel) != 10:
+        tel += choice(nums)
+
+    person = {
+        'name': name,
+        'tel': tel
+    }
+    return person
+
+
+def write_json(person_dict):
+    try:
+        data = json.load(open("../persons.json"))
+    except FileNotFoundError:
+        data = []
+
+    data.append(person_dict)
+    with open("../persons.json", "w") as f:
+        json.dump(data, f, indent=2)
+
+
+for i in range(5):
+    write_json(gen_person())
+
+
+# lass Integer:
+#     def __set_name__(self, owner, name):
+#         self.name = "_" + name
+#
+#     def __get__(self, instance, owner):
+#         # return instance.__dict__[self.name]
+#         return getattr(instance, self.name)
+#
+#     def __set__(self, instance, value):
+#         if not isinstance(value, int):
+#             raise TypeError(f"Значение {self.name} должно быть целочисленное")
+#         # instance.__dict__[self.name] = value
+#         setattr(instance, self.name, value)
 
 
 # goods = {
