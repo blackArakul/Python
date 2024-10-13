@@ -1,0 +1,19 @@
+{%extends 'base.html'%}
+{%block content%}
+{{super()}}
+
+<h2 class="pricing">Pricing</h2>
+<div class="container">
+    {%for c in courses%}
+    <div class="block">
+        <div class="title">{{c.name}}</div>
+        <div class="ctext">
+            <h3>{{c.price}}</h3>
+            <p>{{c.info[:200]}} ...</p>
+        </div>
+        <button class="button"><a href="{{url_for('show_course', alias=c.url)}}">Купить</a></button>
+    </div>
+    {%endfor%}
+</div>
+
+{%endblock%}
